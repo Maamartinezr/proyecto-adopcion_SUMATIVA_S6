@@ -49,9 +49,12 @@ Explicaciones detalladas
 Una vez que el servidor está ejecutándose, puedes acceder a:
 
 Swagger UI (Interfaz Web Interactiva)
+
 http://localhost:8080/swagger-ui.html
+
 Interfaz gráfica para explorar endpoints
 Prueba endpoints directamente desde el navegador
+
 Visualización de esquemas JSON
 JSON API Docs
 http://localhost:8080/v3/api-docs
@@ -79,22 +82,21 @@ GET	/invoices	Sí	Listar facturas
 GET	/invoices/{id}	Sí	Obtener factura por ID
 GET	/invoices/appointment/{appointmentId}	Sí	Obtener factura por visita
 POST	/invoices/appointments/{appointmentId}	Sí	Generar factura por visita
+
 🔐 Autenticación
 Todos los endpoints protegidos requieren un token JWT en el header:
 
 Authorization: Bearer <token>
 Para obtener un token:
-
 curl -X POST http://localhost:8080/login \
   -H "Content-Type: application/json" \
   -d '{
     "username": "admin",
     "password": "password123"
   }'
+
 Para registrar un usuario:
-
 TOKEN="<token_jwt>"
-
 curl -X POST http://localhost:8080/users/register \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
@@ -103,6 +105,8 @@ curl -X POST http://localhost:8080/users/register \
     "email": "recepcion@duocvet.cl",
     "password": "MiClaveSegura2026!"
   }'
+
+  
 🛠️ Herramientas Recomendadas para el Frontend
 Para inspeccionar la API:
 Postman: Importa openapi-spec.yaml
@@ -116,16 +120,20 @@ Para documentación web:
 ReDoc: Visualización hermosa de OpenAPI
 Swagger UI: Interfaz interactiva
 Slate: Documentación estilo markdown
+
 📝 Ejemplos Rápidos
+
 Buscar mascotas por especie
 curl -s "http://localhost:8080/pets/search?species=Perro" | jq
+
 Buscar perros machos en Santiago
 curl -s "http://localhost:8080/pets/search?species=Perro&gender=Macho&location=Santiago" | jq
+
 Obtener mascotas disponibles
 curl -s "http://localhost:8080/pets/available" | jq
+
 Crear una mascota (requiere autenticación)
 TOKEN="<token_jwt>"
-
 curl -X POST http://localhost:8080/pets \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
@@ -138,12 +146,14 @@ curl -X POST http://localhost:8080/pets \
     "location": "Valparaíso",
     "photos": ["https://example.com/luna.jpg"]
   }'
+
 🔄 Flujo de Integración Frontend
 Login: Obtener token JWT
 Guardar token: En localStorage o sessionStorage
 Usar token: En header Authorization: Bearer <token> para operaciones protegidas
 Buscar mascotas: Sin autenticación (GET /pets/search)
 Administrar mascotas: Con autenticación (POST, PUT, DELETE)
+
 📦 Tipos de Datos
 Pet (Mascota)
 {
@@ -187,6 +197,7 @@ Invoice (Factura)
     }
   ]
 }
+
 📞 Soporte
 Para dudas sobre la API:
 
