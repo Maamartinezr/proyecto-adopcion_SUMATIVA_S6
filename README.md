@@ -1,5 +1,5 @@
 Especificaciones da API - Pet Adoption System
-Arquivos de especificación de la API generados en formatos legibles para IA e integración con herramientas frontend.
+Arcuivos de especificación de la API generados en formatos legibles para IA e integración con herramientas frontend.
 
 📁 Contenido
 Este directorio contiene las siguientes especificaciones:
